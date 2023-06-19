@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8" />
+        <title>Mokepon!</title>
+        <!--con este codigo estamos cargando la ruta donde esta el codigo css de maquetado-->
+        <link rel="stylesheet" href="./styles.css">
+    </head>
+    <body>
+            <section id="seleccionar-mascota">
+                
+                <h1 class="titulo">🔥 BIENVENIDO A PICACHU 🔥</h1>
+                <h2 class="subtitulo">Elige tu picachu</h2>
+
+                 <!--se crea un div para en css nombrar las cjitas de mascotas y ordenarlas en horizontal-->
+                <div id='contenedorTarjetas' class="tarjetas">
+                    <!-- esta estructura de codigo se borra porque se paso a javascrip en la funcion iniciar juego -->
+
+                    <!--<input type="radio" name="mascota" id="hipodoge"/>
+                    <label class="tarjeta-de-picachu" for="hipodoge">
+                        <p>Hipodoge</p>
+                        <img src ="./imajmokepon/Hipodoge.png" alt="Hipodoge">
+                    </label>
+                    
+                    <input type="radio" name="mascota" id="capipepo"/>
+                    <label class="tarjeta-de-picachu" for="capipepo">
+                        <p>Capipepo</p>
+                        <img src ="./imajmokepon/Capipepo.png" alt="Capipepo">
+                    </label>
+                    
+                    <input type="radio" name="mascota" id="ratigueya"/>
+                    <label class="tarjeta-de-picachu" for ="ratigueya">
+                        <p>Ratigueya</p>
+                        <img src ="./imajmokepon/Ratigueya.png" alt="Ratigueya">
+                    </label>  -->
+                </div>
+                
+                <button id="boton-mascota">Selecciona tu Picachu</button>
+            </section>
+
+            <!-- este section es para aguremar el canvas y con javascrip y css lamarlo para trabar con el y su id -->
+            <section id="ver-mapa">
+                <h1 class="titulo">🔥Recorre el mapa con tu Picachu🔥</h1>
+                <canvas id="mapa"></canvas>
+                <!-- este boton es para darle movimiento a los picachu -->
+                <!-- la funcion onCLick nos da el moviemiento a los click yla funcion
+                onmousedown nos da el moviemiento por el tiempo que dure precionada la tecla -->
+                <!-- la funcion onmouseip hace que se detenga el movieminto cuando soltemos el boton -->
+                <button onmouseup="detenerMovimiento()"onmousedown="moverArriba()">Arriba</button>
+                <button onmouseup="detenerMovimiento()"onmousedown="moverIzquierda()">Izquierda</button>
+                <button onmouseup="detenerMovimiento()"onmousedown="moverAbajo()">Abajo</button>
+                <button onmouseup="detenerMovimiento()"onmousedown="moverDerecha()">Derecha</button>
+            </section>
+
+            <section id="seleccionar-ataque">
+                <h1 class="titulo">🔥BIENVENIDO PICACHU🔥</h1>
+                <h2 class="subtitulo">Elige tu ataque</h2>
+
+                <div id='contenedorAtaques'class="tarjetas-ataques">
+                    <!-- <button id="boton-agua" class="boton-de-ataque">Agua 💦</button>
+                    <button id="boton-fuego" class="boton-de-ataque">Fuego 🔥</button>
+                    <button id="boton-tierra" class="boton-de-ataque">Tierra 🌱</button>
+                    -->
+                </div>
+                
+                 <div id="mensajes">
+                     <p id="resultado">MUCHA SUERTE</p>
+
+                     <section id="reiniciar">
+                        <button id="boton-reiniciar">Reiniciar</button>
+                    </section>
+                </div>
+                <div class="ataques">   
+                    <div clas="ataques-jugador">
+                        <p id="vidas-jugador">0</p>
+                        <p id="mascota-jugador"></p>
+                        <div id="ataques-del-jugador"></div>
+                        
+                    </div>
+                    <div class="ataques-enemigo">
+                        <p id="vidas-enemigo">0</p>
+                        <p id="mascota-enemigo"></p>
+                        <div id="ataques-del-enemigo"></div>
+                    </div>
+                </div>
+            </section>  
+             <!--con este codigo estamos solicitando que cargue el archivo con el codigo JavaScript-->
+            <script src="./js/mokepon.js"></script>   
+    </body>
+</html>

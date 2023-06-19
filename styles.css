@@ -1,0 +1,186 @@
+/*este codigo esta llamando el enlace del tipo de letra, poedemos llamar mas de 1 tipo*/
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Poppins:ital,wght@1,500&display=swap');
+
+    body {
+        /*este codigo es para el tipo de letra*/
+        font-family: 'Bungee', cursive;
+        /*este codigo es para asignar color de fonfo a la pantalla*/
+        background-color: #2E4F4F;
+        /*este codigo es para establecer una imagen de fondo, la ruta es donde esta guardada*/
+        /* background-image: url("./imajmokepon/fondo1.png"); */
+        
+       }
+
+
+/*esta linea de codigo la utilizamos para centrar las caijas y texto */
+#seleccionar-mascota {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/*selector de tipo se llama asi porque es el mismo nombre que tenemos de la etiqueta de html cuando la etiqueta lleva el punto . */
+.titulo {
+    color: #111111;
+    font-size: 19px ;
+    
+}
+
+.subtitulo {
+    color: #111111;
+    font-size: 19px ;
+}
+
+.tarjetas, .tarjetas-ataques {
+    display: flex;
+    gap: 10px;
+}
+
+/*este codigo es para que salga la manito de seleccion cuando el cursor esta sobre el picachu a seleccionar*/
+.tarjeta-de-picachu {
+    cursor: pointer;
+}
+/*aca estamos cambiando el diseño de las cajotas de la seleccion mascota, alto, ancho, colores de caja y borde*/
+
+.tarjeta-de-picachu{
+
+    font-size: 15px ;
+    width: 160px;
+    height: 180px;
+    background: #CBE4DE;
+    padding: 5px;
+    box-sizing: border-box;
+    margin: 10px;
+    border: 5px solid #111111;
+    border-radius: 20px;
+    
+    /* con estos comandos estamos centrando el nombre y la img dentro del cuadro */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*con este codigo estamos dandole el tamañao a la imagen de los picachu*/
+/*dentro llamando a la misma etiqueta para que solo nos cambie el tamaño de la imagen*/
+.tarjeta-de-picachu img{
+    width: 85px;
+}
+
+#boton-mascota {
+    cursor: pointer;
+}
+#boton-mascota {
+    color: #111111;
+    width: 200px;
+    height: 50px;
+    background: #CBE4DE;
+    padding: 5px;
+    box-sizing: border-box;
+    margin-top: 10px;
+    border: 5px solid #111111;
+    border-radius: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+}
+
+input {
+    display: none; 
+}
+input:hover + label {
+    background-color: rgb(255, 115, 0);
+}
+
+/*aca vamos a iniciar el maquetado de la segundsa imagen*/
+/*se selecciona la cajita padre pafra centrar todo con la propiedad flex*/
+#seleccionar-ataque {
+    /*aca ahi un display: flex; que lo esta ejecutando el archico javascript por ello no se repite */
+    flex-direction: column;
+    align-items: center;
+}
+
+.boton-de-ataque {
+    cursor: pointer;
+}
+
+.boton-de-ataque {
+    width: 90px;
+    height: 45px;
+    background-color: #CBE4DE;
+    padding: 5px;
+    box-sizing: border-box;
+    margin: 10px;
+    border: 5px solid #111111;
+    border-radius: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;  
+}
+
+
+#mensajes {
+    width: 287px;
+    background: #CBE4DE;
+    border: 5px solid #111111;
+    padding: 5px;
+    margin-top: 3px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#boton-reiniciar {
+    width: 100px;
+    border: none;
+    color: black;
+    background: #FF9E00;
+    font-family: 'Poppins', sans-serif;
+    border: 5px solid;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.ataques {
+    display: grid;
+    grid-template-columns: 125px 125px;
+    color: black;
+  }
+  
+  #vidas-jugador, #vidas-enemigo {
+    font-size: 28px;
+    margin-bottom: 0;
+  }
+  
+  .ataques-jugador{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+  }
+  .ataques-enemigo {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #ver-mapa {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #mapa {
+    border: 2px solid white;
+  }
+
+
+/* con este comando estamos indicando que la visualizacion se adapte a pantallas de android, es decir multi pantalla */ 
+@media (max-width: 360px){
+    /* aca indicamos las tarjetas de los picachu */
+    .tarjetas {
+        flex-direction: column; 
+        /*aca indicamos las tarjetas de los poderes, ataques */
+    }
+    .tarjetas-ataques {
+        flex-direction: column; 
+    }
+}
