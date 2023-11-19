@@ -4,8 +4,8 @@
     body {
         /*este codigo es para el tipo de letra*/
         font-family: 'Bungee', cursive;
-        /*este codigo es para asignar color de fonfo a la pantalla*/
-        background-color: #2E4F4F;
+        /*este codigo es para asignar color de fondo a la pantalla*/
+        background-color: rgb(95, 104, 101);
         /*este codigo es para establecer una imagen de fondo, la ruta es donde esta guardada*/
         /* background-image: url("./imajmokepon/fondo1.png"); */
         
