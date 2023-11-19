@@ -62,7 +62,7 @@ mapaBackground.onload = function() {
 /* se crean las clases */
 class Mokepon{
     /* la funcion constructor nos permite crear objetos apartir de la clase y con los elementos, atributos o informacion  que se le asignen */
-    constructor(nombre, foto, vida ){
+    constructor(nombre, foto, vida, fotoMapa, x = 210, y = 140){
         /* this hace referencia al abjeto actual donde se encuentra para nombrarlo */
         this.nombre = nombre
         this.foto = foto
@@ -71,23 +71,43 @@ class Mokepon{
         /*console.log (Mokepon);  con este codigo podemos revisar que la varianle se este ejecutando bien y nos cree el elemento en consola del navegador*/
         /* en esta calse para los picachu se van a crear los
         atributos de x,y, ancho y alto (x, y es la ubicaciondentro del canvas ) */
-        this.x = 20
-        this.y = 30
-        this.ancho = 80
-        this.alto = 80
+        this.x = x
+        this.y = y
+        this.ancho = 40
+        this.alto = 40
         this.mapaFoto = new Image()
-        this.mapaFoto.src = foto
+        this.mapaFoto.src = fotoMapa
         this.velocidadx = 0
         this.velocidady = 0
     }
+     //con este lienzo estamos pintando la cara de nuestro
+     // jugador de acuerdo a parametros de la clase
+    pintarMokepon(){
+        lienzo.drawImage(
+            this.mapaFoto,
+            this.x,
+            this.y,
+            this.ancho,
+            this.alto,
+        )
+    }
+    
 }
 /* variables para contruir mokepones con obetos en clases */
-let hipodoge = new Mokepon('Hipodoge','./imajmokepon/Hipodoge.png', 5, )
-let capipepo = new Mokepon('Capipepo','./imajmokepon/Capipepo.png', 5, )
-let ratigueya = new Mokepon('Ratigueya','./imajmokepon/Ratigueya.png', 5, )
-let tyranitar = new Mokepon('Tyranitar','./imajmokepon/Tyranitar.png', 5)
-let picachu = new Mokepon('Picachu','./imajmokepon/Picachu.png', 5)
-let riolu = new Mokepon('Riolu','./imajmokepon/Riolu.png', 5)
+// con este array estamos llamando la cara nu nuestro jugador en el mapa
+let hipodoge = new Mokepon('Hipodoge','./imajmokepon/Hipodoge.png', 5, './imajmokepon/hipodoge1.png')
+let capipepo = new Mokepon('Capipepo','./imajmokepon/Capipepo.png', 5, './imajmokepon/capipepo1.png')
+let ratigueya = new Mokepon('Ratigueya','./imajmokepon/Ratigueya.png', 5, './imajmokepon/ratigueya1.png')
+
+//aca con este array vamos a mostrar la cara del jugador enemigo en el mapa
+//los ultimos numeros es para darle la posicion donde quiero que apareza el enmigo
+let hipodogeEnemigo = new Mokepon('Hipodoge','./imajmokepon/Hipodoge.png', 5, './imajmokepon/hipodoge1.png',130,420)
+let capipepoEnemigo = new Mokepon('Capipepo','./imajmokepon/Capipepo.png', 5, './imajmokepon/capipepo1.png', 666, 310)
+let ratigueyaEnemigo = new Mokepon('Ratigueya','./imajmokepon/Ratigueya.png', 5, './imajmokepon/ratigueya1.png', 860, 190)
+
+// let tyranitar = new Mokepon('Tyranitar','./imajmokepon/Tyranitar.png', 5)
+// let picachu = new Mokepon('Picachu','./imajmokepon/Picachu.png', 5)
+// let riolu = new Mokepon('Riolu','./imajmokepon/Riolu.png', 5)
 
 /* el push es enpuja o inyecta un valor en la variable mokepones que es un arreglo para asi mandar a llamar todos los objetos con una sola variable que en esta caso son las variables de los objetos, se puede hacer por separado o todo en una linea de codigo como esta aca */
 /* mokepones.push(hipodoge, capipepo, ratigueya) */
@@ -417,13 +437,17 @@ function pintarCanvas() {
     // la siguiente linea de codigo es para dibujar en el lienzo 
     //el mapa con sus propiedades (variable mapaBackground)
     lienzo.drawImage(mapaBackground, 0, 0, mapaBackground.width, mapaBackground.height)
-    lienzo.drawImage(
-        mascotaJugadorObjeto.mapaFoto,
-        mascotaJugadorObjeto.x,
-        mascotaJugadorObjeto.y,
-        mascotaJugadorObjeto.ancho,
-        mascotaJugadorObjeto.alto,
-    )
+    /*aca se usa el obajeto que se creo de la 
+    mascota jugador y de este obajeto llamamos a la funcion pintar que
+    se creo en la clase arriba de nuestero mokepon */
+   
+    //pintamos la mascota del jugador seleccionada
+    mascotaJugadorObjeto.pintarMokepon()
+
+    //aca pintamos la mascota del enemigo
+    hipodogeEnemigo.pintarMokepon()
+    capipepoEnemigo.pintarMokepon()
+    ratigueyaEnemigo.pintarMokepon()
 }
 
 /* esta funcion nos permite los movimientos del picachu por el mapa */
@@ -476,8 +500,8 @@ function sePresionoUnaTecla(event){
 function iniciarMapa () {
     // aca vamos hacer que nuestro mama se vea mas grande
     //de acuerdo a las caracteristicas de la imagen ancho y alto para que se vea toda en el mapa
-    sectionMapa.width = 1024
-    sectionMapa.height = 576
+    sectionMapa.width = 920
+    sectionMapa.height = 480
     mascotaJugadorObjeto = obtenerObjetoMascota(mascotaJugador)
      /* aca con esta funcion estamos diciendo que cada 50 milisegundos se 
     pinte la imagen de capipepo aumentando su posicion  de acuerdo a la velocidad
